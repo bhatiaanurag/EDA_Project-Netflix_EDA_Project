@@ -106,27 +106,6 @@ With the rapid growth of streaming platforms, understanding content trends has b
 
 ---
 
-## Data Preprocessing
-
-```python
-# 1. Handle missing values
-df['director'].fillna('Unknown', inplace=True)
-df['cast'].fillna('Unknown', inplace=True)
-df['country'].fillna(df['country'].mode()[0], inplace=True)
-
-# 2. Convert data types
-df['date_added'] = pd.to_datetime(df['date_added'].str.strip())
-df['release_year'] = df['release_year'].astype(int)
-
-# 3. Clean categorical columns
-df['listed_in'] = df['listed_in'].str.split(',')
-df = df.explode('listed_in')
-df['listed_in'] = df['listed_in'].str.strip()
-
-# 4. Remove duplicates
-df.drop_duplicates(subset='show_id', inplace=True)
-```
-
 ---
 
 ## Exploratory Data Analysis
