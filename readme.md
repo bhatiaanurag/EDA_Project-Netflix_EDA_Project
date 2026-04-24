@@ -1,8 +1,12 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=E50914&height=200&section=header&text=Netflix%20Data%20Analysis&fontSize=48&fontColor=ffffff&fontAlignY=38&desc=Exploratory%20Data%20Analysis%20Project&descAlignY=58&descSize=18&descColor=ffcccc" width="100%"/>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=E50914&height=220&section=header&text=Netflix%20Data%20Analysis&fontSize=50&fontColor=ffffff&fontAlignY=38&desc=Exploratory%20Data%20Analysis%20Project&descAlignY=58&descSize=20&descColor=ffcccc&animation=fadeIn" width="100%"/>
 
 <br>
+
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=22&duration=3000&pause=1000&color=E50914&center=true&vCenter=true&width=600&lines=Netflix+Content+Analysis;Exploratory+Data+Analysis+(EDA);Uncovering+Streaming+Trends;Data-Driven+Content+Strategy" alt="Typing SVG" />
+
+<br><br>
 
 <img src="https://img.shields.io/badge/Netflix-E50914?style=for-the-badge&logo=netflix&logoColor=white"/>
 &nbsp;
@@ -28,13 +32,21 @@
 
 <br><br>
 
+<img src="https://komarev.com/ghpvc/?username=netflix-eda&label=Profile+Views&color=E50914&style=flat-square" alt="views"/>
+
+<br><br>
+
 </div>
 
 ---
 
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
+
 ## Overview
 
 This project performs **Exploratory Data Analysis (EDA)** on the Netflix dataset to uncover insights about content distribution, trends, and viewer preferences. The analysis focuses on understanding how Netflix's content library has evolved over time and extracting meaningful insights that can support content strategy and decision-making.
+
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
 
 ---
 
@@ -81,11 +93,15 @@ With the rapid growth of streaming platforms, understanding content trends has b
 
 ## Objectives
 
+<img align="right" alt="Analysis" width="320" src="https://raw.githubusercontent.com/abhisheknaiidu/abhisheknaiidu/master/code.gif"/>
+
 - Perform thorough data cleaning and preprocessing
 - Conduct detailed Exploratory Data Analysis at univariate, bivariate, and multivariate levels
 - Identify trends in content distribution across time
 - Analyze genre and country-wise content patterns
 - Generate actionable insights for content strategy
+
+<br><br><br><br>
 
 ---
 
@@ -102,7 +118,38 @@ With the rapid growth of streaming platforms, understanding content trends has b
 | Matplotlib | Latest | Base plotting and visualization |
 | Seaborn | Latest | Statistical data visualization |
 
+<br>
+
+<img src="https://skillicons.dev/icons?i=python&theme=dark" height="40"/>
+&nbsp;&nbsp;
+<img src="https://skillicons.dev/icons?i=github&theme=dark" height="40"/>
+&nbsp;&nbsp;
+<img src="https://skillicons.dev/icons?i=vscode&theme=dark" height="40"/>
+
 </div>
+
+---
+
+## Data Preprocessing
+
+```python
+# 1. Handle missing values
+df['director'].fillna('Unknown', inplace=True)
+df['cast'].fillna('Unknown', inplace=True)
+df['country'].fillna(df['country'].mode()[0], inplace=True)
+
+# 2. Convert data types
+df['date_added'] = pd.to_datetime(df['date_added'].str.strip())
+df['release_year'] = df['release_year'].astype(int)
+
+# 3. Clean categorical columns
+df['listed_in'] = df['listed_in'].str.split(',')
+df = df.explode('listed_in')
+df['listed_in'] = df['listed_in'].str.strip()
+
+# 4. Remove duplicates
+df.drop_duplicates(subset='show_id', inplace=True)
+```
 
 ---
 
@@ -222,7 +269,13 @@ The analysis provides a structured view of Netflix's content evolution and highl
 
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=E50914&height=120&section=footer&fontColor=ffffff" width="100%"/>
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%">
+
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=16&duration=4000&pause=1000&color=E50914&center=true&vCenter=true&width=500&lines=Thank+you+for+visiting!;Star+the+repo+if+you+found+it+helpful!" alt="Typing SVG" />
+
+<br>
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=E50914&height=140&section=footer&fontColor=ffffff" width="100%"/>
 
 **Guided by Yash Jain — Future Vision Computer**
 
